@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poem for Prabhat Sir</title>
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 20px;
+        background: #f0f8ff;
+    }
+    .container{
+        max-width: 600px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    button{
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        background: #28a745;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover{
+        background: #218838;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Poem for Prabhat Sir</h2>
+
+    <p id="poem">
+        Prabhat ki roshni jaise,<br>
+        har andhera mit jata hai.<br>
+        Aapke shabdon se gyaan,<br>
+        dil ko raah dikhata hai.<br>
+        Shiksha ka diya jalate ho,<br>
+        sabko jeena sikhate ho.<br>
+        Dhanyawaad aapka sir,<br>
+        aap sach me mahaan ho.
+    </p>
+
+    <button onclick="speakPoem()">Poem Suno</button>
+</div>
+
+<script>
+function speakPoem() {
+    let text = document.getElementById("poem").innerText;
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "hi-IN";
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
