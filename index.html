@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holi Poem for Prabhat Sir</title>
+<title>Poem Player</title>
 <style>
     body{
         margin:0;
@@ -56,7 +56,7 @@
 <body>
 
 <div class="container">
-    <h2>🌸 Poem for Prabhat Sir 🌸</h2>
+    <h2>🌸 Poem for Sir 🌸</h2>
 
     <p id="poem">
         Prabhat Sir ki roshni jaise,<br>
@@ -65,13 +65,15 @@
         dil ko raah dikhata hai.<br>
         Shiksha ka diya jalate ho,<br>
         sabko jeena sikhate ho.<br>
-        Dhanyawaad Prabhat Sir,<br>
+        Dhanyawaad Sir,<br>
         aap sach me mahaan ho.
     </p>
 
     <button id="listenBtn" onclick="toggleSpeak()">Listen Poem</button>
+</div>
 
-<script>let speaking = false;
+<script>
+let speaking = false;
 let speech = null;
 
 function toggleSpeak() {
@@ -85,8 +87,8 @@ function toggleSpeak() {
     }
 
     speakPoem();
-    }
-    
+}
+
 function speakPoem() {
     let text = document.getElementById("poem").innerText;
     speech = new SpeechSynthesisUtterance(text);
@@ -95,12 +97,10 @@ function speakPoem() {
     speech.pitch = 1;
 
     speech.onend = function() {
-        setTimeout(() => {
-            if (speaking) speakPoem();
-        }, 1500);
+        speaking = false;
+        document.getElementById("listenBtn").innerHTML = "Listen Poem";
     };
 
-    speaking = true;
     document.getElementById("listenBtn").innerHTML = "Stop Listening";
     window.speechSynthesis.speak(speech);
 }
