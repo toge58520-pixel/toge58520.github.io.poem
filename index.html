@@ -1,32 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holi Poem</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holi Poem for Sir</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
+        animation: bgmove 10s infinite alternate;
+        text-align: center;
+        padding: 20px;
+    }
+
+    @keyframes bgmove {
+        0% { background-position: left; }
+        100% { background-position: right; }
+    }
+
+    .container {
+        max-width: 600px;
+        margin: auto;
+        background: rgba(255,255,255,0.85);
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        color: #d84315;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    button {
+        background: #ff5722;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+
+    button:hover {
+        background: #e64a19;
+    }
+</style>
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
     <h1>Happy Holi Sir 🌸</h1>
     <p id="poem">
-      रंगों का त्योहार आया,<br>
-      खुशियों की बहार लाया।<br>
-      प्रभात सर के चेहरे पर,<br>
-      मुस्कान का गुलाल छाया।<br><br>
-
-      शिक्षा का दीप जलाते हैं,<br>
-      ज्ञान के फूल खिलाते हैं।<br>
-      हम सब मिलकर होली में,<br>
-      प्रेम के रंग सजाते हैं।<br><br>
-
-      Happy Holi Sir!
+        रंगों से भरी होली आई,<br>
+        खुशियों की सौगात लाई।<br>
+        हँसी-खुशी से खेलें सब,<br>
+        प्रेम का संदेश लाई।<br><br>
+        जिंदगी भी रंगों जैसी हो,<br>
+        हर रंग में खुशहाली हो।<br>
+        ज्ञान के दीप जलाते रहें,<br>
+        सर हमेशा आपकी कृपा हो।
     </p>
 
-    <button id="startBtn">Show Message</button>
-  </div>
+    <button id="listenBtn" onclick="toggleSpeak()">🔊 Listen Poem</button>
+</div>
 
-  <script src="script.js"></script>
+<script>
+let speaking = false;
+
+function toggleSpeak() {
+    let btn = document.getElementById("listenBtn");
+
+    if (speaking) {
+        window.speechSynthesis.cancel();
+        speaking = false;
+        btn.innerHTML = "🔊 Listen Poem";
+        return;
+    }
+
+    let text = document.getElementById("poem").innerText;
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "hi-IN";
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    speech.onend = function() {
+        speaking = false;
+        btn.innerHTML = "🔊 Listen Poem";
+    };
+
+    window.speechSynthesis.speak(speech);
+    speaking = true;
+    btn.innerHTML = "⏹ Stop";
+}
+</script>
+
 </body>
-</html>
+  </html>
