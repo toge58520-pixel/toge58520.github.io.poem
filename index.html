@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poem Player</title>
+<title>Poem Listener</title>
 <style>
     body{
-        margin:0;
+        text-align: center;
         font-family: Arial, sans-serif;
-        text-align:center;
         background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
         animation: bgmove 8s infinite alternate;
     }
@@ -19,22 +18,12 @@
     }
 
     .container{
-        margin: 30px auto;
+        margin: 40px auto;
         max-width: 700px;
-        background: rgba(255,255,255,0.95);
-        padding: 25px;
+        background: white;
+        padding: 20px;
         border-radius: 15px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
-
-    h2{
-        color: #d63384;
-        font-size: 32px;
-    }
-
-    #poem{
-        font-size: 26px;
-        line-height: 1.6;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
     button{
@@ -56,17 +45,13 @@
 <body>
 
 <div class="container">
-    <h2>🌸 Poem for Sir 🌸</h2>
+    <h2>🌸 Poem 🌸</h2>
 
     <p id="poem">
         Prabhat Sir ki roshni jaise,<br>
         har andhera mit jata hai.<br>
         Aapke shabdon se gyaan,<br>
-        dil ko raah dikhata hai.<br>
-        Shiksha ka diya jalate ho,<br>
-        sabko jeena sikhate ho.<br>
-        Dhanyawaad Sir,<br>
-        aap sach me mahaan ho.
+        dil ko raah dikhata hai.
     </p>
 
     <button id="listenBtn" onclick="toggleSpeak()">Listen Poem</button>
@@ -74,7 +59,7 @@
 
 <script>
 let speaking = false;
-let speech = null;
+let speech;
 
 function toggleSpeak() {
     let btn = document.getElementById("listenBtn");
@@ -86,22 +71,18 @@ function toggleSpeak() {
         return;
     }
 
-    speakPoem();
-}
-
-function speakPoem() {
-    let text = document.getElementById("poem").innerText;
-    speech = new SpeechSynthesisUtterance(text);
+    speech = new SpeechSynthesisUtterance(document.getElementById("poem").innerText);
     speech.lang = "hi-IN";
-    speech.rate = 0.8;
+    speech.rate = 0.9;
     speech.pitch = 1;
 
     speech.onend = function() {
         speaking = false;
-        document.getElementById("listenBtn").innerHTML = "Listen Poem";
+        btn.innerHTML = "Listen Poem";
     };
 
-    document.getElementById("listenBtn").innerHTML = "Stop Listening";
+    speaking = true;
+    btn.innerHTML = "Stop Listening";
     window.speechSynthesis.speak(speech);
 }
 </script>
