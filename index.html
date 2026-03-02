@@ -69,21 +69,39 @@
         aap sach me mahaan ho.
     </p>
 
-    <button onclick="speakPoem()">Listen Poem (Auto Repeat)</button>
-</div>
+    <button id="listenBtn" onclick="toggleSpeak()">Listen Poem</button>
 
-<script>
+<script>let speaking = false;
+let speech = null;
+
+function toggleSpeak() {
+    let btn = document.getElementById("listenBtn");
+
+    if (speaking) {
+        window.speechSynthesis.cancel();
+        speaking = false;
+        btn.innerHTML = "Listen Poem";
+        return;
+    }
+
+    speakPoem();
+    }
+    
 function speakPoem() {
     let text = document.getElementById("poem").innerText;
-    let speech = new SpeechSynthesisUtterance(text);
+    speech = new SpeechSynthesisUtterance(text);
     speech.lang = "hi-IN";
     speech.rate = 0.8;
     speech.pitch = 1;
 
     speech.onend = function() {
-        setTimeout(speakPoem, 2000); // auto repeat after 2 sec
+        setTimeout(() => {
+            if (speaking) speakPoem();
+        }, 1500);
     };
 
+    speaking = true;
+    document.getElementById("listenBtn").innerHTML = "Stop Listening";
     window.speechSynthesis.speak(speech);
 }
 </script>
