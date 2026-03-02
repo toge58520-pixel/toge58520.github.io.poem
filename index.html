@@ -3,31 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poem for Prabhat Sir</title>
+<title>Holi Poem for Prabhat Sir</title>
 <style>
     body{
+        margin:0;
         font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-        background: #f0f8ff;
+        text-align:center;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+        animation: bgmove 8s infinite alternate;
     }
+
+    @keyframes bgmove{
+        0% {background-position: left;}
+        100% {background-position: right;}
+    }
+
     .container{
-        max-width: 600px;
-        margin: auto;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        margin: 30px auto;
+        max-width: 700px;
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
+
+    h2{
+        color: #d63384;
+        font-size: 32px;
+    }
+
+    #poem{
+        font-size: 26px;
+        line-height: 1.6;
+    }
+
     button{
-        padding: 10px 20px;
-        font-size: 16px;
+        padding: 12px 25px;
+        font-size: 18px;
         border: none;
         background: #28a745;
         color: white;
-        border-radius: 5px;
+        border-radius: 25px;
         cursor: pointer;
+        margin-top: 15px;
     }
+
     button:hover{
         background: #218838;
     }
@@ -36,20 +56,20 @@
 <body>
 
 <div class="container">
-    <h2>Poem for Prabhat Sir</h2>
+    <h2>🌸 Poem for Prabhat Sir 🌸</h2>
 
     <p id="poem">
-        Prabhat ki roshni jaise,<br>
+        Prabhat Sir ki roshni jaise,<br>
         har andhera mit jata hai.<br>
         Aapke shabdon se gyaan,<br>
         dil ko raah dikhata hai.<br>
         Shiksha ka diya jalate ho,<br>
         sabko jeena sikhate ho.<br>
-        Dhanyawaad aapka sir,<br>
+        Dhanyawaad Prabhat Sir,<br>
         aap sach me mahaan ho.
     </p>
 
-    <button onclick="speakPoem()">Poem Suno</button>
+    <button onclick="speakPoem()">Listen Poem (Auto Repeat)</button>
 </div>
 
 <script>
@@ -57,6 +77,13 @@ function speakPoem() {
     let text = document.getElementById("poem").innerText;
     let speech = new SpeechSynthesisUtterance(text);
     speech.lang = "hi-IN";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    speech.onend = function() {
+        setTimeout(speakPoem, 2000); // auto repeat after 2 sec
+    };
+
     window.speechSynthesis.speak(speech);
 }
 </script>
