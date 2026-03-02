@@ -1,91 +1,32 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Poem Listener</title>
-<style>
-    body{
-        text-align: center;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-        animation: bgmove 8s infinite alternate;
-    }
-
-    @keyframes bgmove{
-        0% {background-position: left;}
-        100% {background-position: right;}
-    }
-
-    .container{
-        margin: 40px auto;
-        max-width: 700px;
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    button{
-        padding: 12px 25px;
-        font-size: 18px;
-        border: none;
-        background: #28a745;
-        color: white;
-        border-radius: 25px;
-        cursor: pointer;
-        margin-top: 15px;
-    }
-
-    button:hover{
-        background: #218838;
-    }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holi Poem</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-    <h2>🌸 Poem 🌸</h2>
-
+  <div class="container">
+    <h1>Happy Holi Sir 🌸</h1>
     <p id="poem">
-        Prabhat Sir ki roshni jaise,<br>
-        har andhera mit jata hai.<br>
-        Aapke shabdon se gyaan,<br>
-        dil ko raah dikhata hai.
+      रंगों का त्योहार आया,<br>
+      खुशियों की बहार लाया।<br>
+      प्रभात सर के चेहरे पर,<br>
+      मुस्कान का गुलाल छाया।<br><br>
+
+      शिक्षा का दीप जलाते हैं,<br>
+      ज्ञान के फूल खिलाते हैं।<br>
+      हम सब मिलकर होली में,<br>
+      प्रेम के रंग सजाते हैं।<br><br>
+
+      Happy Holi Sir!
     </p>
 
-    <button id="listenBtn" onclick="toggleSpeak()">Listen Poem</button>
-</div>
+    <button id="startBtn">Show Message</button>
+  </div>
 
-<script>
-let speaking = false;
-let speech;
-
-function toggleSpeak() {
-    let btn = document.getElementById("listenBtn");
-
-    if (speaking) {
-        window.speechSynthesis.cancel();
-        speaking = false;
-        btn.innerHTML = "Listen Poem";
-        return;
-    }
-
-    speech = new SpeechSynthesisUtterance(document.getElementById("poem").innerText);
-    speech.lang = "hi-IN";
-    speech.rate = 0.9;
-    speech.pitch = 1;
-
-    speech.onend = function() {
-        speaking = false;
-        btn.innerHTML = "Listen Poem";
-    };
-
-    speaking = true;
-    btn.innerHTML = "Stop Listening";
-    window.speechSynthesis.speak(speech);
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
