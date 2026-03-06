@@ -1,148 +1,94 @@
 function showSection(id){
 
-let sections=document.querySelectorAll(".section")
+let sections=document.querySelectorAll(".section");
 
-sections.forEach(sec=>sec.style.display="none")
+sections.forEach(sec=>sec.style.display="none");
 
-document.getElementById(id).style.display="block"
+document.getElementById(id).style.display="block";
 
 }
 
-showSection("home")
+showSection("home");
 
 
-function speakText(element){
+function speakText(selector){
 
-let text=element.innerText
+let text=document.querySelector(selector).innerText;
 
-let speech=new SpeechSynthesisUtterance(text)
+let speech=new SpeechSynthesisUtterance(text);
 
-speech.lang="en-US"
+speech.lang="en-US";
 
-speechSynthesis.speak(speech)
+speechSynthesis.speak(speech);
+
+}
+
+
+function toggleLanguage(){
+
+alert("Language switch example. Hindi translation can be added later.");
 
 }
 
 
 let questions=[
 
-{
-q:"What is the study of plants called?",
-options:["Botany","Zoology","Chemistry","Physics"],
-answer:"Botany"
-},
+{q:"Study of plants is called?",a:"Botany"},
+{q:"Study of animals is called?",a:"Zoology"},
+{q:"Smallest unit of matter?",a:"Atom"},
+{q:"Process plants make food?",a:"Photosynthesis"},
+{q:"Animals with backbone?",a:"Vertebrates"},
+{q:"Animals without backbone?",a:"Invertebrates"},
+{q:"Cell discovered by?",a:"Robert Hooke"},
+{q:"DNA full form?",a:"Deoxyribonucleic Acid"},
+{q:"Energy currency of cell?",a:"ATP"},
+{q:"Study of fungi?",a:"Mycology"}
 
-{
-q:"What is the study of animals called?",
-options:["Botany","Zoology","Astronomy","Geology"],
-answer:"Zoology"
-},
+];
 
-{
-q:"Which process helps plants make food?",
-options:["Respiration","Photosynthesis","Digestion","Absorption"],
-answer:"Photosynthesis"
-},
-
-{
-q:"Which part of plant absorbs water?",
-options:["Leaf","Stem","Root","Flower"],
-answer:"Root"
-},
-
-{
-q:"Animals with backbone are called?",
-options:["Invertebrates","Vertebrates","Reptiles","Mammals"],
-answer:"Vertebrates"
-},
-
-{
-q:"Which science studies matter?",
-options:["Chemistry","Biology","Botany","Zoology"],
-answer:"Chemistry"
-},
-
-{
-q:"Smallest unit of matter?",
-options:["Cell","Atom","Molecule","Electron"],
-answer:"Atom"
-},
-
-{
-q:"Animals without backbone are called?",
-options:["Vertebrates","Invertebrates","Mammals","Birds"],
-answer:"Invertebrates"
-}
-
-]
-
-
-for(let i=0;i<42;i++){
+for(let i=11;i<=50;i++){
 
 questions.push({
-
-q:"General science practice question "+(i+9),
-
-options:["Option A","Option B","Option C","Option D"],
-
-answer:"Option A"
-
+q:"General Biology Question "+i,
+a:"A"
 })
 
 }
 
 
+let html="";
 
-let quizHTML=""
+questions.forEach((q,i)=>{
 
-questions.forEach((q,index)=>{
+html+=`
 
-quizHTML+=`<div class="quizQ">
+<div class="quizQ">
 
-<p>${index+1}. ${q.q}</p>
+<p>${i+1}. ${q.q}</p>
 
-`
+<input type="text" id="q${i}" placeholder="Your Answer">
 
-q.options.forEach(opt=>{
+</div>
 
-quizHTML+=`
+`;
 
-<label>
+});
 
-<input type="radio" name="q${index}" value="${opt}">
-
-${opt}
-
-</label><br>
-
-`
-
-})
-
-quizHTML+=`</div><br>`
-
-})
-
-document.getElementById("quizContainer").innerHTML=quizHTML
-
+document.getElementById("quizContainer").innerHTML=html;
 
 
 function submitQuiz(){
 
-let score=0
+let score=0;
 
-questions.forEach((q,index)=>{
+questions.forEach((q,i)=>{
 
-let selected=document.querySelector('input[name="q'+index+'"]:checked')
+let ans=document.getElementById("q"+i).value;
 
-if(selected && selected.value==q.answer){
+if(ans.toLowerCase()==q.a.toLowerCase()) score++;
 
-score++
+});
 
-}
-
-})
-
-document.getElementById("score").innerText="Your Score: "+score+" / "+questions.length
+document.getElementById("score").innerText="Your Score: "+score+" / "+questions.length;
 
   }
