@@ -3,119 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Science Study Hub</title>
+<title>BSc Biology Study Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>SCIENCE STUDY HUB</h1>
-<p>Botany • Zoology • Chemistry</p>
+<h1>BSc Biology Study Hub</h1>
+<p>MDSU Biology Learning Website</p>
 </header>
 
-<div class="buttons">
+<div class="nav">
 
 <button onclick="showSection('home')">Home</button>
-<button onclick="showSection('botany')">Botany</button>
-<button onclick="showSection('zoology')">Zoology</button>
-<button onclick="showSection('chemistry')">Chemistry</button>
+<button onclick="showSection('year1')">BSc 1st Year</button>
+<button onclick="showSection('year2')">BSc 2nd Year</button>
+<button onclick="showSection('year3')">BSc 3rd Year</button>
 <button onclick="showSection('quiz')">Quiz</button>
-<button onclick="showSection('feedback')">Feedback</button>
+
+<button onclick="toggleLanguage()">Language</button>
 
 </div>
 
 <section id="home" class="section">
-<h2>Welcome</h2>
-<p>This website helps students learn Botany, Zoology and Chemistry with summaries, notes and quiz.</p>
-<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
-</section>
-
-<section id="botany" class="section">
-
-<h2>Botany Summary</h2>
-
-<p>
-Botany is the study of plants. It includes plant structure,
-growth, reproduction and classification.
-Plants produce food through photosynthesis.
+<h2>Welcome Students</h2>
+<p class="text">
+This website helps BSc Biology students learn syllabus topics,
+read summaries and test knowledge with quiz questions.
 </p>
 
-<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
-
-<h3>Notes</h3>
-
-<p>
-• Plants make food using sunlight.  
-• Roots absorb water.  
-• Leaves perform photosynthesis.  
-</p>
+<button onclick="speakText('.text')">🔊 Voice Read</button>
 
 </section>
 
-<section id="zoology" class="section">
+<section id="year1" class="section">
 
-<h2>Zoology Summary</h2>
+<h2>BSc Biology 1st Year</h2>
 
-<p>
-Zoology is the study of animals. It includes animal structure,
-behavior, evolution and classification.
+<h3>Botany</h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Plant.jpg">
+
+<p class="text">
+Topics include plant cell biology, algae study and plant diversity.
+Students learn how plants grow and perform photosynthesis.
 </p>
 
-<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
+<h3>Zoology</h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Animal_diversity.jpg">
 
-<h3>Notes</h3>
-
-<p>
-• Animals depend on plants for food.  
-• Vertebrates have backbone.  
-• Invertebrates do not have backbone.  
+<p class="text">
+Covers animal diversity, non-chordates and cell biology.
+Students study structure and functions of animals.
 </p>
+
+<h3>Chemistry</h3>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Chemistry_lab.jpg">
+
+<p class="text">
+Topics include atomic structure, chemical bonding and basic
+organic chemistry reactions.
+</p>
+
+<button onclick="speakText('#year1')">🔊 Voice</button>
 
 </section>
 
-<section id="chemistry" class="section">
+<section id="year2" class="section">
 
-<h2>Chemistry Summary</h2>
+<h2>BSc Biology 2nd Year</h2>
 
-<p>
-Chemistry is the study of matter, elements and chemical reactions.
-It explains how substances interact and change.
+<p class="text">
+Second year focuses on plant classification, chordates,
+genetics basics and organic chemistry reactions.
+Students learn evolution, plant systematics and physiology.
 </p>
 
-<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
+<button onclick="speakText('#year2')">🔊 Voice</button>
 
-<h3>Notes</h3>
+</section>
 
-<p>
-• Matter has mass and volume.  
-• Atoms combine to form molecules.  
-• Chemical reactions change substances.  
+<section id="year3" class="section">
+
+<h2>BSc Biology 3rd Year</h2>
+
+<p class="text">
+Final year includes biotechnology, ecology, evolution,
+wildlife conservation and advanced chemistry topics.
+Students study applications of biology in research.
 </p>
+
+<button onclick="speakText('#year3')">🔊 Voice</button>
 
 </section>
 
 <section id="quiz" class="section">
 
-<h2>Science Quiz</h2>
+<h2>Science Quiz (50 Questions)</h2>
 
 <div id="quizContainer"></div>
 
 <button onclick="submitQuiz()">Submit Quiz</button>
 
 <h3 id="score"></h3>
-
-</section>
-
-<section id="feedback" class="section">
-
-<h2>Feedback</h2>
-
-<input type="text" placeholder="Your Name">
-
-<textarea placeholder="Your Feedback"></textarea>
-
-<button onclick="alert('Thanks for feedback!')">Send</button>
 
 </section>
 
