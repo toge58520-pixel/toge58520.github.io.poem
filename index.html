@@ -1,104 +1,125 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Holi Poem for Sir</title>
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb);
-        animation: bgmove 10s infinite alternate;
-        text-align: center;
-        padding: 20px;
-    }
-
-    @keyframes bgmove {
-        0% { background-position: left; }
-        100% { background-position: right; }
-    }
-
-    .container {
-        max-width: 600px;
-        margin: auto;
-        background: rgba(255,255,255,0.85);
-        padding: 20px;
-        border-radius: 15px;
-    }
-
-    h1 {
-        color: #d84315;
-    }
-
-    p {
-        font-size: 18px;
-        line-height: 1.6;
-    }
-
-    button {
-        background: #ff5722;
-        color: white;
-        border: none;
-        padding: 12px 25px;
-        font-size: 16px;
-        border-radius: 20px;
-        cursor: pointer;
-        margin-top: 15px;
-    }
-
-    button:hover {
-        background: #e64a19;
-    }
-</style>
+<title>Science Study Hub</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Happy Holi Sir 🌸</h1>
-    <p id="poem">
-        रंगों से भरी होली आई,<br>
-        खुशियों की सौगात लाई।<br>
-        हँसी-खुशी से खेलें सब,<br>
-        प्रेम का संदेश लाई।<br><br>
-        जिंदगी भी रंगों जैसी हो,<br>
-        हर रंग में खुशहाली हो।<br>
-        ज्ञान के दीप जलाते रहें,<br>
-        सर हमेशा आपकी कृपा हो।
-    </p>
+<header>
+<h1>SCIENCE STUDY HUB</h1>
+<p>Botany • Zoology • Chemistry</p>
+</header>
 
-    <button id="listenBtn" onclick="toggleSpeak()">🔊 Listen Poem</button>
+<div class="buttons">
+
+<button onclick="showSection('home')">Home</button>
+<button onclick="showSection('botany')">Botany</button>
+<button onclick="showSection('zoology')">Zoology</button>
+<button onclick="showSection('chemistry')">Chemistry</button>
+<button onclick="showSection('quiz')">Quiz</button>
+<button onclick="showSection('feedback')">Feedback</button>
+
 </div>
 
-<script>
-let speaking = false;
+<section id="home" class="section">
+<h2>Welcome</h2>
+<p>This website helps students learn Botany, Zoology and Chemistry with summaries, notes and quiz.</p>
+<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
+</section>
 
-function toggleSpeak() {
-    let btn = document.getElementById("listenBtn");
+<section id="botany" class="section">
 
-    if (speaking) {
-        window.speechSynthesis.cancel();
-        speaking = false;
-        btn.innerHTML = "🔊 Listen Poem";
-        return;
-    }
+<h2>Botany Summary</h2>
 
-    let text = document.getElementById("poem").innerText;
-    let speech = new SpeechSynthesisUtterance(text);
-    speech.lang = "hi-IN";
-    speech.rate = 1;
-    speech.pitch = 1;
+<p>
+Botany is the study of plants. It includes plant structure,
+growth, reproduction and classification.
+Plants produce food through photosynthesis.
+</p>
 
-    speech.onend = function() {
-        speaking = false;
-        btn.innerHTML = "🔊 Listen Poem";
-    };
+<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
 
-    window.speechSynthesis.speak(speech);
-    speaking = true;
-    btn.innerHTML = "⏹ Stop";
-}
-</script>
+<h3>Notes</h3>
+
+<p>
+• Plants make food using sunlight.  
+• Roots absorb water.  
+• Leaves perform photosynthesis.  
+</p>
+
+</section>
+
+<section id="zoology" class="section">
+
+<h2>Zoology Summary</h2>
+
+<p>
+Zoology is the study of animals. It includes animal structure,
+behavior, evolution and classification.
+</p>
+
+<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
+
+<h3>Notes</h3>
+
+<p>
+• Animals depend on plants for food.  
+• Vertebrates have backbone.  
+• Invertebrates do not have backbone.  
+</p>
+
+</section>
+
+<section id="chemistry" class="section">
+
+<h2>Chemistry Summary</h2>
+
+<p>
+Chemistry is the study of matter, elements and chemical reactions.
+It explains how substances interact and change.
+</p>
+
+<button onclick="speakText(this.parentElement)">🔊 Voice Read</button>
+
+<h3>Notes</h3>
+
+<p>
+• Matter has mass and volume.  
+• Atoms combine to form molecules.  
+• Chemical reactions change substances.  
+</p>
+
+</section>
+
+<section id="quiz" class="section">
+
+<h2>Science Quiz</h2>
+
+<div id="quizContainer"></div>
+
+<button onclick="submitQuiz()">Submit Quiz</button>
+
+<h3 id="score"></h3>
+
+</section>
+
+<section id="feedback" class="section">
+
+<h2>Feedback</h2>
+
+<input type="text" placeholder="Your Name">
+
+<textarea placeholder="Your Feedback"></textarea>
+
+<button onclick="alert('Thanks for feedback!')">Send</button>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
-  </html>
+    </html>
