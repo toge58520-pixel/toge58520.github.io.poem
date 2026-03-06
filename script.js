@@ -26,33 +26,105 @@ speechSynthesis.speak(speech)
 
 let questions=[
 
-{q:"Plants study is called?",a:"Botany"},
-{q:"Animals study is called?",a:"Zoology"},
-{q:"Matter study is called?",a:"Chemistry"}
+{
+q:"What is the study of plants called?",
+options:["Botany","Zoology","Chemistry","Physics"],
+answer:"Botany"
+},
+
+{
+q:"What is the study of animals called?",
+options:["Botany","Zoology","Astronomy","Geology"],
+answer:"Zoology"
+},
+
+{
+q:"Which process helps plants make food?",
+options:["Respiration","Photosynthesis","Digestion","Absorption"],
+answer:"Photosynthesis"
+},
+
+{
+q:"Which part of plant absorbs water?",
+options:["Leaf","Stem","Root","Flower"],
+answer:"Root"
+},
+
+{
+q:"Animals with backbone are called?",
+options:["Invertebrates","Vertebrates","Reptiles","Mammals"],
+answer:"Vertebrates"
+},
+
+{
+q:"Which science studies matter?",
+options:["Chemistry","Biology","Botany","Zoology"],
+answer:"Chemistry"
+},
+
+{
+q:"Smallest unit of matter?",
+options:["Cell","Atom","Molecule","Electron"],
+answer:"Atom"
+},
+
+{
+q:"Animals without backbone are called?",
+options:["Vertebrates","Invertebrates","Mammals","Birds"],
+answer:"Invertebrates"
+}
 
 ]
 
-for(let i=1;i<=47;i++){
 
-questions.push({q:"Sample science question "+i,a:"A"})
+for(let i=0;i<42;i++){
+
+questions.push({
+
+q:"General science practice question "+(i+9),
+
+options:["Option A","Option B","Option C","Option D"],
+
+answer:"Option A"
+
+})
 
 }
+
+
 
 let quizHTML=""
 
 questions.forEach((q,index)=>{
 
-quizHTML+=`
+quizHTML+=`<div class="quizQ">
 
 <p>${index+1}. ${q.q}</p>
 
-<input type="text" id="q${index}">
+`
+
+q.options.forEach(opt=>{
+
+quizHTML+=`
+
+<label>
+
+<input type="radio" name="q${index}" value="${opt}">
+
+${opt}
+
+</label><br>
 
 `
 
 })
 
+quizHTML+=`</div><br>`
+
+})
+
 document.getElementById("quizContainer").innerHTML=quizHTML
+
 
 
 function submitQuiz(){
@@ -61,9 +133,13 @@ let score=0
 
 questions.forEach((q,index)=>{
 
-let ans=document.getElementById("q"+index).value
+let selected=document.querySelector('input[name="q'+index+'"]:checked')
 
-if(ans.toLowerCase()==q.a.toLowerCase()) score++
+if(selected && selected.value==q.answer){
+
+score++
+
+}
 
 })
 
