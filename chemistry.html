@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemistry - Science Portal</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    button {
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        transform: scale(1.05);
+        background: #0044ff;
+    }
+    img.chem {
+        width: 80%;
+        max-width: 400px;
+        display: block;
+        margin: 20px auto;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #00aaff;
+    }
+    .summary {
+        text-align: justify;
+        margin: 15px;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Chemistry</h1>
+
+    <p class="summary" id="chemText">
+        Chemistry is the scientific study of matter, its properties, composition, and the changes it undergoes.
+        Everything around us is made of matter, and chemistry helps us understand how different substances interact.
+        It explains chemical reactions, bonding, and the transformation of substances into new forms.
+
+        Chemistry is divided into three main branches: physical chemistry, organic chemistry, and inorganic chemistry.
+        Physical chemistry studies the properties and behavior of matter, such as energy, thermodynamics, and reaction rates.
+        Organic chemistry focuses on carbon-containing compounds and their reactions, which are essential in medicines,
+        plastics, and biological systems. Inorganic chemistry studies minerals and non-carbon compounds.
+
+        Chemistry plays a vital role in daily life. It helps in medicine development, agriculture, food production,
+        environmental protection, and industrial manufacturing. For example, fertilizers enhance crop growth,
+        medicines treat diseases, and cleaning agents remove impurities.
+
+        Understanding chemistry enables scientific innovation and problem-solving. It helps in creating sustainable
+        technologies, reducing pollution, and improving human health. Chemistry is not just a subject—it is the foundation
+        of modern science and technology.
+    </p>
+
+    <img class="chem" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Chemical_flask.jpg" alt="Chemistry Image">
+
+    <button onclick="speakText(document.getElementById('chemText').innerText)">Voice Read</button>
+    <button onclick="location.href='notes.html'">Notes</button>
+    <button onclick="location.href='quiz.html'">Quiz</button>
+    <button onclick="location.href='index.html'">Home</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
