@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz - Science Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>B.Sc Science Syllabus Quiz</h1>
+    <p>Answer the questions based on Botany, Zoology, and Chemistry syllabus.</p>
+
+    <div id="quiz"></div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+    <h2 id="score"></h2>
+    <button onclick="location.href='index.html'">Home</button>
+</div>
+
+<script>
+const questions = [
+  // Botany 1st Year
+  {q:"What is the main pigment in plants for photosynthesis?", a:"Chlorophyll"},
+  {q:"Mango belongs to which plant group?", a:"Angiosperm"},
+  {q:"What is the basic unit of life in plants?", a:"Cell"},
+  {q:"Plants store energy in the form of?", a:"Starch"},
+  {q:"Which process do plants use to make food?", a:"Photosynthesis"},
+
+  // Botany 2nd Year
+  {q:"Which plant hormone promotes growth?", a:"Auxin"},
+  {q:"What is the scientific name of Tulsi?", a:"Ocimum tenuiflorum"},
+  {q:"Wheat is used to produce?", a:"Flour"},
+  {q:"Bamboo is mainly used for?", a:"Construction"},
+  {q:"Which plant stores water in desert conditions?", a:"Cactus"},
+
+  // Botany 3rd Year
+  {q:"Study of plant diseases is called?", a:"Plant Pathology"},
+  {q:"Genetic modification in plants is called?", a:"Genetic Engineering"},
+  {q:"Tulsi improves which system in humans?", a:"Immunity"},
+  {q:"Photosynthesis mainly occurs in which plant organ?", a:"Leaf"},
+  {q:"Sunflower is used to extract?", a:"Oil"},
+
+  // Zoology 1st Year
+  {q:"Lion is classified as?", a:"Mammal"},
+  {q:"Frog is an example of?", a:"Amphibian"},
+  {q:"Honey Bee is a type of?", a:"Insect"},
+  {q:"Snake belongs to which animal class?", a:"Reptile"},
+  {q:"Elephant is an herbivore. True or False?", a:"True"},
+
+  // Zoology 2nd Year
+  {q:"Study of animal behavior is called?", a:"Ethology"},
+  {q:"Which organ helps in respiration in humans?", a:"Lungs"},
+  {q:"Butterflies help in?", a:"Pollination"},
+  {q:"Ants are classified as?", a:"Insects"},
+  {q:"Parasitology studies?", a:"Parasites"},
+
+  // Zoology 3rd Year
+  {q:"Genetic engineering in animals is studied in?", a:"Biotechnology"},
+  {q:"Study of immune system is called?", a:"Immunology"},
+  {q:"Top predator in the food chain is?", a:"Lion"},
+  {q:"Animals help in maintaining?", a:"Ecosystem"},
+  {q:"Research methods in zoology include?", a:"Observation"},
+
+  // Chemistry 1st Year
+  {q:"Water formula is?", a:"H2O"},
+  {q:"Common salt formula is?", a:"NaCl"},
+  {q:"Carbon dioxide formula is?", a:"CO2"},
+  {q:"Oxygen is an?", a:"Element"},
+  {q:"Glucose formula is?", a:"C6H12O6"},
+
+  // Chemistry 2nd Year
+  {q:"Ammonia is used in?", a:"Fertilizers"},
+  {q:"Sulfuric acid is mainly used in?", a:"Industry"},
+  {q:"Ethanol is used in?", a:"Medicine"},
+  {q:"Calcium carbonate is used in?", a:"Construction"},
+  {q:"Methane is a type of?", a:"Gas"},
+
+  // Chemistry 3rd Year
+  {q:"Quantum chemistry studies?", a:"Atoms"},
+  {q:"Polymer chemistry is used to make?", a:"Plastics"},
+  {q:"Industrial chemistry includes?", a:"Manufacturing"},
+  {q:"Environmental chemistry studies?", a:"Pollution"},
+  {q:"Analytical chemistry deals with?", a:"Analysis"},
+
+  // Bonus general science questions
+  {q:"The heart pumps?", a:"Blood"},
+  {q:"Brain controls?", a:"Body"},
+  {q:"Plants produce?", a:"Oxygen"},
+  {q:"Animals consume?", a:"Food"},
+  {q:"Science is the study of?", a:"Nature"},
+  {q:"Earth rotates on its?", a:"Axis"},
+  {q:"Sun provides?", a:"Energy"},
+  {q:"Moon is a?", a:"Satellite"},
+  {q:"Bacteria are?", a:"Living"},
+  {q:"Gravity pulls objects towards?", a:"Earth"}
+];
+
+let quizDiv = document.getElementById("quiz");
+
+questions.forEach((item, index) => {
+    quizDiv.innerHTML += `<p>${index+1}. ${item.q}</p>
+    <input id="q${index}" type="text" placeholder="Answer"><br>`;
+});
+
+function submitQuiz(){
+    let score = 0;
+    questions.forEach((item, index) => {
+        let ans = document.getElementById("q"+index).value;
+        if(ans.trim().toLowerCase() === item.a.toLowerCase()) score++;
+    });
+    document.getElementById("score").innerText = "Score: " + score + " / 50";
+}
+</script>
+
+</body>
+</html>
