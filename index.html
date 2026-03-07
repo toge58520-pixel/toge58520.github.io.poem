@@ -3,113 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BSc Biology Study Hub</title>
+<title>Science Study Portal</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-<h1>BSc Biology Study Hub</h1>
-<p>MDSU Biology Learning Website</p>
-</header>
+<div class="container">
+    <h1>Science Study Portal</h1>
+    <p>Botany | Zoology | Chemistry</p>
 
-<div class="nav">
-
-<button onclick="showSection('home')">Home</button>
-<button onclick="showSection('year1')">BSc 1st Year</button>
-<button onclick="showSection('year2')">BSc 2nd Year</button>
-<button onclick="showSection('year3')">BSc 3rd Year</button>
-<button onclick="showSection('quiz')">Quiz</button>
-
-<button onclick="toggleLanguage()">Language</button>
-
+    <button onclick="location.href='botany.html'">Botany</button>
+    <button onclick="location.href='zoology.html'">Zoology</button>
+    <button onclick="location.href='chemistry.html'">Chemistry</button>
+    <button onclick="location.href='notes.html'">Notes</button>
+    <button onclick="location.href='quiz.html'">Quiz</button>
+    <button onclick="toggleLanguage()">Language</button>
+    <button onclick="location.href='feedback.html'">Feedback</button>
 </div>
 
-<section id="home" class="section">
-<h2>Welcome Students</h2>
-<p class="text">
-This website helps BSc Biology students learn syllabus topics,
-read summaries and test knowledge with quiz questions.
-</p>
-
-<button onclick="speakText('.text')">🔊 Voice Read</button>
-
-</section>
-
-<section id="year1" class="section">
-
-<h2>BSc Biology 1st Year</h2>
-
-<h3>Botany</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Plant.jpg">
-
-<p class="text">
-Topics include plant cell biology, algae study and plant diversity.
-Students learn how plants grow and perform photosynthesis.
-</p>
-
-<h3>Zoology</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Animal_diversity.jpg">
-
-<p class="text">
-Covers animal diversity, non-chordates and cell biology.
-Students study structure and functions of animals.
-</p>
-
-<h3>Chemistry</h3>
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Chemistry_lab.jpg">
-
-<p class="text">
-Topics include atomic structure, chemical bonding and basic
-organic chemistry reactions.
-</p>
-
-<button onclick="speakText('#year1')">🔊 Voice</button>
-
-</section>
-
-<section id="year2" class="section">
-
-<h2>BSc Biology 2nd Year</h2>
-
-<p class="text">
-Second year focuses on plant classification, chordates,
-genetics basics and organic chemistry reactions.
-Students learn evolution, plant systematics and physiology.
-</p>
-
-<button onclick="speakText('#year2')">🔊 Voice</button>
-
-</section>
-
-<section id="year3" class="section">
-
-<h2>BSc Biology 3rd Year</h2>
-
-<p class="text">
-Final year includes biotechnology, ecology, evolution,
-wildlife conservation and advanced chemistry topics.
-Students study applications of biology in research.
-</p>
-
-<button onclick="speakText('#year3')">🔊 Voice</button>
-
-</section>
-
-<section id="quiz" class="section">
-
-<h2>Science Quiz (50 Questions)</h2>
-
-<div id="quizContainer"></div>
-
-<button onclick="submitQuiz()">Submit Quiz</button>
-
-<h3 id="score"></h3>
-
-</section>
-
 <script src="script.js"></script>
-
 </body>
-    </html>
+</html>
