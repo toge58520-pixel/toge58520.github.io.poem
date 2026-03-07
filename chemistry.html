@@ -5,55 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chemistry - Science Portal</title>
 <link rel="stylesheet" href="style.css">
-<style>
-    button {
-        transition: all 0.3s ease;
-    }
-    button:hover {
-        transform: scale(1.05);
-        background: #0044ff;
-    }
-    img.chem {
-        width: 80%;
-        max-width: 400px;
-        display: block;
-        margin: 20px auto;
-        border-radius: 15px;
-        box-shadow: 0 0 20px #00aaff;
-    }
-    .summary {
-        text-align: justify;
-        margin: 15px;
-        font-size: 17px;
-        line-height: 1.7;
-    }
-</style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Chemistry</h1>
+    <h1>Chemistry - Detailed Study</h1>
 
-    <p class="summary" id="chemText">
-        Chemistry is the scientific study of matter, its properties, composition, and the changes it undergoes.
-        Everything around us is made of matter, and chemistry helps us understand how different substances interact.
-        It explains chemical reactions, bonding, and the transformation of substances into new forms.
+    <p id="chemText">
+        Chemistry is the scientific study of matter and chemical reactions.
+        Everything around us is made of matter.
 
-        Chemistry is divided into three main branches: physical chemistry, organic chemistry, and inorganic chemistry.
-        Physical chemistry studies the properties and behavior of matter, such as energy, thermodynamics, and reaction rates.
-        Organic chemistry focuses on carbon-containing compounds and their reactions, which are essential in medicines,
-        plastics, and biological systems. Inorganic chemistry studies minerals and non-carbon compounds.
+        Major chemical examples:
 
-        Chemistry plays a vital role in daily life. It helps in medicine development, agriculture, food production,
-        environmental protection, and industrial manufacturing. For example, fertilizers enhance crop growth,
-        medicines treat diseases, and cleaning agents remove impurities.
+        Water (H2O) – essential for life  
+        Oxygen (O2) – respiration  
+        Carbon Dioxide (CO2) – plants use in photosynthesis  
+        Sodium Chloride (NaCl) – common salt  
+        Glucose (C6H12O6) – energy source  
+        Sulfuric Acid (H2SO4) – industrial use  
+        Ammonia (NH3) – fertilizers  
+        Methane (CH4) – natural gas  
+        Ethanol (C2H5OH) – medicines  
+        Calcium Carbonate (CaCO3) – construction
 
-        Understanding chemistry enables scientific innovation and problem-solving. It helps in creating sustainable
-        technologies, reducing pollution, and improving human health. Chemistry is not just a subject—it is the foundation
-        of modern science and technology.
+        Branches:
+        - Physical Chemistry
+        - Organic Chemistry
+        - Inorganic Chemistry
+
+        Uses:
+        Medicine, agriculture, industry, environmental science
     </p>
-
-    <img class="chem" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Chemical_flask.jpg" alt="Chemistry Image">
 
     <button onclick="speakText(document.getElementById('chemText').innerText)">Voice Read</button>
     <button onclick="location.href='notes.html'">Notes</button>
