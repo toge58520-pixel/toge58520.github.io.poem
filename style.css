@@ -1,79 +1,49 @@
-body{
-
-margin:0;
-font-family:Arial;
-color:white;
-text-align:center;
-
-background:linear-gradient(270deg,#000000,#001f3f,#003366,#000000);
-background-size:600% 600%;
-animation:bgMove 12s infinite;
-
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background: linear-gradient(120deg, #0b0f19, #1b2735, #2a0a45, #001f3f);
+    background-size: 400% 400%;
+    animation: gradientMotion 10s ease infinite;
 }
 
-@keyframes bgMove{
-
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-
+@keyframes gradientMotion {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-header{
-
-padding:20px;
-
+.container {
+    padding: 20px;
 }
 
-.nav{
-
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-padding:10px;
-
+h1 {
+    color: #00aaff;
+    font-size: 32px;
+    font-weight: bold;
 }
 
-button{
-
-background:#0a84ff;
-color:white;
-border:2px solid #4da6ff;
-padding:10px 15px;
-font-weight:bold;
-border-radius:8px;
-cursor:pointer;
-
+p {
+    font-size: 18px;
 }
 
-button:hover{
-
-background:#0066cc;
-
+button {
+    width: 90%;
+    max-width: 320px;
+    padding: 12px;
+    margin: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: blue;
+    border: 2px solid #00aaff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.section{
-
-display:none;
-padding:20px;
-
-}
-
-img{
-
-width:250px;
-max-width:80%;
-border-radius:10px;
-margin:10px;
-
-}
-
-.quizQ{
-
-background:rgba(0,0,0,0.5);
-padding:15px;
-margin:10px;
-border-radius:10px;
-
+button:hover {
+    background: #0044ff;
+    transform: scale(1.05);
 }
