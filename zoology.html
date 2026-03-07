@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoology - Science Portal</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    button {
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        transform: scale(1.05);
+        background: #0044ff;
+    }
+    img.animal {
+        width: 80%;
+        max-width: 400px;
+        display: block;
+        margin: 20px auto;
+        border-radius: 15px;
+        box-shadow: 0 0 20px #00aaff;
+    }
+    .syllabus {
+        text-align: left;
+        margin: 15px;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Zoology</h1>
+
+    <p id="zooText">
+        Zoology is the branch of biology that studies animals, their structure, behavior, evolution, and classification.
+        It helps us understand animal diversity and ecosystems. Zoology plays an important role in medicine,
+        wildlife conservation, and environmental balance.
+    </p>
+
+    <img class="animal" src="https://upload.wikimedia.org/wikipedia/commons/1/15/Red_Panda_%28Ailurus_fulgens%29.jpg" alt="Animal Image">
+
+    <div class="syllabus">
+        <h2>📘 B.Sc 1st Year - Zoology</h2>
+        <ul>
+            <li>Animal Diversity</li>
+            <li>Cell Biology</li>
+            <li>Genetics</li>
+            <li>Evolution</li>
+            <li>Animal Physiology</li>
+        </ul>
+
+        <h2>📘 B.Sc 2nd Year - Zoology</h2>
+        <ul>
+            <li>Comparative Anatomy</li>
+            <li>Ecology and Environment</li>
+            <li>Parasitology</li>
+            <li>Animal Biotechnology</li>
+            <li>Developmental Biology</li>
+        </ul>
+
+        <h2>📘 B.Sc 3rd Year - Zoology</h2>
+        <ul>
+            <li>Animal Behavior</li>
+            <li>Immunology</li>
+            <li>Genetic Engineering</li>
+            <li>Wildlife Conservation</li>
+            <li>Research Methods</li>
+        </ul>
+    </div>
+
+    <button onclick="speakText(document.getElementById('zooText').innerText)">Voice Read</button>
+    <button onclick="location.href='notes.html'">Notes</button>
+    <button onclick="location.href='quiz.html'">Quiz</button>
+    <button onclick="location.href='index.html'">Home</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+              </html>
